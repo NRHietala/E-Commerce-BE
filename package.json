@@ -1,0 +1,23 @@
+{
+  "name": "E-Commerce-BE",
+  "version": "1.0.0",
+  "description": "🚧 Starting backend for e-commerce project 🚧",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NRHietala/E-Commerce-BE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NRHietala/E-Commerce-BE/issues"
+  },
+  "homepage": "https://github.com/NRHietala/E-Commerce-BE#readme",
+  "devDependencies": {
+    "eslint": "^7.29.0"
+  }
+}

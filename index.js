@@ -3,7 +3,7 @@ const express = require("express");
 const server = require("./api/server.js");
 const path = require("path");
 
-const PORT = process.env.PORT || 5667;
+const PORT = process.env.PORT || 1337;
 
 server.use(express.static(path.join(__dirname, "client/dist")));
 

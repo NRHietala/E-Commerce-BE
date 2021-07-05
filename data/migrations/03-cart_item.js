@@ -2,19 +2,18 @@ exports.up = function (knex) {
   return knex.schema.createTable("cart_item", table => {
     table.increments("id");
     table
-      .integer("session_id")
+      .integer("cart_id")
       .references("id")
-      .inTable("shopping_session")
+      .inTable("cart")
       .onUpdate("CASCADE")
       .onDelete("CASCADE");
     table
       .integer("product_id")
       .references("id")
-      .inTable("product")
+      .inTable("products")
       .onUpdate("CASCADE")
       .onDelete("CASCADE");
-    table.integer("quantity").unsigned().notNullable();
-    table.timestamps(true, true);
+    table.integer("quantity").notNullable().unsigned();
   });
 };
 

@@ -1,22 +1,22 @@
 exports.up = function (knex) {
-  return knex.schema.createTable("order_items", table => {
+  return knex.schema.createTable("order_item", table => {
     table.increments("id");
     table
       .integer("order_id")
       .references("id")
-      .inTable("order_details")
+      .inTable("orders")
       .onUpdate("CASCADE")
       .onDelete("CASCADE");
     table
       .integer("product_id")
       .references("id")
-      .inTable("product")
+      .inTable("products")
       .onUpdate("CASCADE")
       .onDelete("CASCADE");
-    table.timestamps(true, true);
+    table.integer("quantity").notNullable().unsigned();
   });
 };
 
 exports.down = function (knex) {
-  return knex.schema.dropTableIfExists("order_items");
+  return knex.schema.dropTableIfExists("order_item");
 };

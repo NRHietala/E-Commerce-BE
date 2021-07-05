@@ -5,6 +5,7 @@ exports.up = function (knex) {
       .integer("user_id")
       .references("id")
       .inTable("users")
+      .onUpdate("CASCADE")
       .onDelete("CASCADE");
     table.string("address_line1").notNullable();
     table.string("address_line2");

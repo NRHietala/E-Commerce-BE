@@ -12,6 +12,8 @@ const sharedConfig = {
 };
 
 module.exports = {
+  // Error: The server does not support SSL connections
+  // Added "?sslmode=disable" to DEV_DATABASE_URL in .env as a workaround
   development: {
     ...sharedConfig,
     connection: process.env.DEV_DATABASE_URL,

@@ -7,6 +7,16 @@ server.use(express.json());
 server.use(helmet());
 server.use(cors());
 
+// Routers //
+
+const userRouter = require("./user/userRouter");
+
+// App Routes //
+
+server.use("/api/users", userRouter);
+
+// Server index and catch-all //
+
 server.get("/", (_, res) => {
   res.send("API is running! Better go out and catch it! 🏃‍♂️");
 });

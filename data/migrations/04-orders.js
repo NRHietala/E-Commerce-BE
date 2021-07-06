@@ -7,10 +7,10 @@ exports.up = function (knex) {
       .inTable("users")
       .onUpdate("CASCADE")
       .onDelete("CASCADE");
-    table.date("date").notNullable();
+    table.datetime("date").notNullable();
     table.decimal("amount").notNullable().unsigned();
     table.decimal("total").notNullable().unsigned();
-    table.timestamps(true, false);
+    table.timestamps(true, true);
   });
 };
 

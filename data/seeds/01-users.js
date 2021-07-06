@@ -1,9 +1,5 @@
 const faker = require("faker");
 
-// const getRand = max => {
-//   return Math.floor(Math.random() * max) + 1;
-// };
-
 const users = [...new Array(20)].map(() => ({
   email: faker.fake(`{{internet.email}}`),
   password: faker.fake(`{{internet.password}}`),

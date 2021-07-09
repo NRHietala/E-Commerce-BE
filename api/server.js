@@ -9,10 +9,12 @@ server.use(cors());
 
 // Routers //
 
+const authRouter = require("./auth/authRouter");
 const userRouter = require("./user/userRouter");
 
 // App Routes //
 
+server.use("/api/auth", authRouter);
 server.use("/api/users", userRouter);
 
 // Server index and catch-all //

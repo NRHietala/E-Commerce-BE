@@ -26,5 +26,5 @@ async function addUser(user) {
 }
 
 function editUser(changes, id) {
-  return knex("users").where({ user_id: id }).update(changes);
+  return knex("users").where({ id: id }).update(changes);
 }

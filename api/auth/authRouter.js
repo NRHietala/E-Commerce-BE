@@ -1,14 +1,16 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
+const User = require("../user/userModel");
+
+// middleware
+const { validatePayload } = require("../middleware/validatePayload");
+const validateEmail = require("../middleware/validateEmail");
 
 // token creator
 const tokenVendingMachine = require("../utils/tokenCreator");
 
-// importing Users model
-const User = require("../user/userModel");
-
-// Auth Endpoints
-router.post("/register", (req, res, next) => {
+// Register new user
+router.post("/register", validatePayload, validateEmail, (req, res, next) => {
   let newUser = req.body;
   const hashedPass = bcrypt.hashSync(newUser.password, 8);
   newUser.password = hashedPass;
@@ -18,11 +20,12 @@ router.post("/register", (req, res, next) => {
       return res.status(201).json(addedUser);
     })
     .catch(e => {
-      console.log(e);
+      next(e);
     });
 });
 
-router.post("/login", async (req, res, next) => {
+// Login user
+router.post("/login", validatePayload, async (req, res, next) => {
   const { email, password } = req.body;
   const tryUser = await User.getByEmail(email);
 

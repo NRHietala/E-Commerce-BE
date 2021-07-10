@@ -20,7 +20,7 @@ router.post("/register", validatePayload, validateEmail, (req, res, next) => {
       return res.status(201).json(addedUser);
     })
     .catch(e => {
-      console.log(e);
+      next(e);
     });
 });
 

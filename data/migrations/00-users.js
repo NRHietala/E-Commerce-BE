@@ -5,12 +5,12 @@ exports.up = function (knex) {
     table.string("password", 128).notNullable();
     table.string("first_name").notNullable();
     table.string("last_name").notNullable();
-    table.string("address_1").notNullable();
+    table.string("address_1");
     table.string("address_2");
-    table.string("city").notNullable();
-    table.string("state").notNullable();
-    table.string("zip_code").notNullable();
-    table.string("phone", 32).notNullable();
+    table.string("city");
+    table.string("state");
+    table.string("zip_code");
+    table.string("phone", 32);
     table.timestamps(true, true);
   });
 };
